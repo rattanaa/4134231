@@ -1,0 +1,84 @@
+# ระบบตรวจเช็คค่าน้ำประปาหมู่บ้าน
+
+เอกสารสรุปและโครงสร้างไฟล์ของโปรเจค
+
+สรุปสั้น ๆ
+โปรเจกต์นี้เป็นเว็บแอปสำหรับจัดการการอ่านมาตรวัดค่าน้ำและการออกใบแจ้งหนี้สำหรับชุมชน/หมู่บ้าน (ดูรายละเอียดใน SRS.md)
+
+โครงสร้างไฟล์ (แนะนำ)
+
+project-root/
+- readme.me
+- SRS.md
+- architecture.md
+- CLAUDE.md
+- readme.md (optional)
+- docs/
+	- design.md
+	- erd.png
+	- api-spec.md
+- src/
+	- backend/
+		- app/
+			- __init__.py
+			- main.py
+			- models/
+				- user.py
+				- meter.py
+			- controllers/
+				- auth.py
+				- meter.py
+			- services/
+		- migrations/
+		- requirements.txt
+	- frontend/
+		- public/
+			- index.html
+		- src/
+			- pages/
+				- Dashboard.vue
+				- Login.vue
+			- components/
+				- MeterList.vue
+			- assets/
+	- shared/
+		- utils/
+			- helpers.py
+- scripts/
+	- seed_db.py
+	- deploy.sh
+- tests/
+	- backend/
+	- frontend/
+- .env.example
+
+คำอธิบายไฟล์สำคัญ
+- `SRS.md`: ข้อกำหนดซอฟต์แวร์ (Functional / Non-functional requirements)
+- `architecture.md`: แผนภาพสถาปัตยกรรมและการออกแบบระดับสูง
+- `docs/`: เอกสารเสริม (ERD, API spec)
+- `src/backend`: โค้ดฝั่งเซิร์ฟเวอร์ (API, โมเดล, migrations)
+- `src/frontend`: โค้ดฝั่งไคลเอนต์ (UI, assets)
+- `scripts/`: สคริปต์ช่วยเหลือ เช่น สร้างข้อมูลเริ่มต้นหรือ deployment
+- `tests/`: ชุดทดสอบหน่วยและอินทิเกรชัน
+
+คำแนะนำเริ่มต้น (Quick start)
+1. สร้าง virtual environment (Python example):
+
+	 python -m venv .venv
+	 .venv\Scripts\activate
+
+2. ติดตั้ง dependencies ฝั่ง backend (ตัวอย่าง):
+
+	 pip install -r src/backend/requirements.txt
+
+3. ตัวอย่างสคริปต์เริ่มต้น:
+
+	 python scripts\seed_db.py
+
+ข้อเสนอแนะเพิ่มเติม
+- หากต้องการ ผมสามารถ:
+	- แปลง `readme.me` เป็นไฟล์ `README.md` พร้อม Markdown แบบสมบูรณ์
+	- สร้างโครงสร้างโฟลเดอร์เริ่มต้นใน repo
+	- เพิ่มหัวข้อ `Setup`, `Run`, `Contribute` พร้อมตัวอย่างคำสั่ง
+
+แจ้งผมว่าต้องการให้ผมทำขั้นตอนต่อไปข้อไหนครับ
