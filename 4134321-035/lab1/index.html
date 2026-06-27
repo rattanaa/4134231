@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ระบบน้ำประปาหมู่บ้าน</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">ระบบบริการน้ำประปาหมู่บ้าน</p>
+          <h1>ดูข้อมูลผู้ใช้น้ำและที่อยู่ของคุณได้อย่างสะดวก</h1>
+          <p class="subtitle">
+            เข้าสู่ระบบเพื่อดูสถานะการใช้น้ำ ปรับปรุงที่อยู่ และตรวจสอบสถานะการชำระเงิน
+          </p>
+        </div>
+      </header>
+
+      <main>
+        <section id="login-section" class="card">
+          <h2>ลงชื่อเข้าใช้</h2>
+          <p class="helper">บัญชีตัวอย่าง: username: admin / password: 1234</p>
+          <form id="login-form" class="form-stack">
+            <label>
+              ชื่อผู้ใช้
+              <input id="username" name="username" type="text" required />
+            </label>
+            <label>
+              รหัสผ่าน
+              <input id="password" name="password" type="password" required />
+            </label>
+            <button type="submit">เข้าสู่ระบบ</button>
+          </form>
+          <p id="login-error" class="error-message"></p>
+        </section>
+
+        <section id="dashboard-section" class="card hidden">
+          <div class="dashboard-head">
+            <div>
+              <p class="eyebrow">ยินดีต้อนรับ</p>
+              <h2 id="welcome-name">ชื่อผู้ใช้</h2>
+            </div>
+            <button id="logout-btn" class="secondary-btn">ออกจากระบบ</button>
+          </div>
+
+          <div class="info-grid">
+            <article class="info-card">
+              <h3>ข้อมูลผู้ใช้</h3>
+              <p><strong>ชื่อ:</strong> <span id="full-name"></span></p>
+              <p><strong>เบอร์โทร:</strong> <span id="phone-value"></span></p>
+              <p><strong>สถานะ:</strong> <span id="status-value"></span></p>
+            </article>
+
+            <article class="info-card">
+              <h3>ที่อยู่ของคุณ</h3>
+              <p id="address-text"></p>
+              <form id="address-form" class="form-stack">
+                <label>
+                  อัปเดตที่อยู่
+                  <textarea id="address-input" rows="3" required></textarea>
+                </label>
+                <button type="submit">บันทึกที่อยู่</button>
+              </form>
+              <p id="address-success" class="success-message"></p>
+            </article>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <p class="stat-label">ปริมาณน้ำเดือนนี้</p>
+              <h3 id="usage-value">0</h3>
+            </article>
+            <article class="stat-card">
+              <p class="stat-label">ชำระค่าบริการ</p>
+              <h3 id="bill-value">เรียบร้อย</h3>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
